@@ -15,6 +15,7 @@
 
 # This will "auto-detect" if it has been deployed before, meaning that it depends on having the manifest.json file and rsconnect directory with the correct information
 
+#################################### FIRST
 library(rsconnect)
 
 rsconnect::writeManifest()
@@ -26,6 +27,7 @@ rsconnect::deployApp(
   server = "colorado.rstudio.com"
 )
 
+#################################### SECOND
 # This will attempt to deploy to the defined appId. If the content types don't match (for example, overwriting a shiny app with a static rmarkdown), then it will throw an error. User will be prompted for whether or not they want to overwrite the existing content in the Console window. 
 
 library(rsconnect)
@@ -35,11 +37,13 @@ rsconnect::writeManifest()
 rsconnect::deployApp(
   appDir = getwd(),
   appId = "12929",
-  account = "lisa.anders",
+  #account = "lisa.anders",
   server = "colorado.rstudio.com",
   forceUpdate = TRUE
 )
 
+
+#################################### THIRD
 # We can also run this without needing user inputs by forcing the content to be overwritten without prompting with forceUpdate = TRUE and by authenticating to the server using an API rather than through the GUI. 
 
 # addServer("https://colorado.rstudio.com/rsc/__api__", "myserver")
@@ -61,6 +65,7 @@ rsconnect::deployApp(
   forceUpdate = TRUE
 )
 
+#################################### FOURTH
 # Instead of publishing we can trigger re-renders and other programmatic options with the [connectapi package](https://github.com/rstudio/connectapi)
 
 library(connectapi)
